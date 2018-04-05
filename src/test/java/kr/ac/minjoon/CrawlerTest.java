@@ -17,8 +17,16 @@ public class CrawlerTest {
     }
 
     @Test
-    public void get() throws SQLException, ClassNotFoundException, IOException {
-        Elements elements =crawler.get(".post-link");
-        elements.forEach((s)-> System.out.println(s.text()));
+    public void getAll() throws SQLException, ClassNotFoundException, IOException {
+        Elements elements =crawler.getAll(".post-link");
+        elements.forEach((s)-> System.out.println(s));
+    }
+
+    @Test
+    public void getLinkAll() throws IOException {
+       String url[] =crawler.getLinkAll(".post-link");
+       for(int i=0; i<url.length; i++){
+           System.out.println(url[i]);
+       }
     }
 }
